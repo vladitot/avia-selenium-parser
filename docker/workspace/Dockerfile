@@ -1,0 +1,1 @@
+FROM avia-service_workspace

@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  workspace-extended:
+    container_name: workspace
+    build:
+      context: ../docker/workspace
+    volumes:
+      - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
+    extra_hosts:
+      - "dockerhost:${DOCKER_HOST_IP}"
+      - "dockerhost_ext:${MACHINE_IP}"
+    tty: true
+    environment:
+      - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
+      - DOCKER_HOST=tcp://docker-in-docker:2375
+      - XDEBUG_HOST_ADDRESS=dockerhost_ext
+      - ${SSH_KEY_PATH}:/root/.ssh/id_rsa
+      - ${SSH_KEY_PUB_PATH}:/root/.ssh/id_rsa.pub
+    networks:
+      - frontend
+      - backend
+    links:
+      - docker-in-docker
