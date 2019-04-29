@@ -20,6 +20,19 @@ class Avia extends Service
      */
     public function handle(Scenario $request): array
     {
+        $result = [];
 
+        while($step = $request->getNextStep()) {
+
+            $method = $step->getMethod();
+            $arguments = $step->getArguments();
+
+            $currentResult = ['method'=>$method, 'arguments'=>implode(',', $arguments)];
+
+            $currentResult['result'] = $this->actor->$method(...$arguments);
+            $result[] = $currentResult;
+        }
+
+        return $result;
     }
 }

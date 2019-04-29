@@ -44,10 +44,22 @@
 
 @task('up', ['on' => 'localhost'])
     @run('build-list')
-    {{ $dockerCompose }} up -d workspace-extended php-fpm nginx
+    {{ $dockerCompose }} up -d workspace-extended php-fpm nginx selenoid
 @endtask
 
 
 @task('bash', ['on'=>'localhost'])
     {{ $dockerCompose }} exec -u laradock workspace-extended bash
+@endtask
+
+@task('down', ['on'=>'localhost'])
+    {{ $dockerCompose }} down
+@endtask
+
+@task('xdebug-on', ['on'=>'localhost'])
+    ./laradock/php-fpm/xdebug start
+@endtask
+
+@task('xdebug-off', ['on'=>'localhost'])
+    ./laradock/php-fpm/xdebug stop
 @endtask

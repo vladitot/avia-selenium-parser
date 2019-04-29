@@ -13,7 +13,7 @@ interface Scenario
      * Get next scenario step
      * @return Step
      */
-    public function getNextStep(): Step;
+    public function getNextStep();
 
     /**
      * Add Scenario step

@@ -17,11 +17,13 @@ class Scenario implements \App\Service\Request\Scenario
     private $steps;
 
     /**
-     * @return Step
+     * @return Step|bool
      */
-    public function getNextStep(): Step
+    public function getNextStep()
     {
-        return next($this->steps);
+        $current = current($this->steps);
+        next($this->steps);
+        return $current;
     }
 
     /**
