@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Service\ActorCreator;
+use App\Service\Factory\StepFactory;
 use App\Service\Realization\Avia;
 use Codeception\Application;
 use Codeception\Codecept;
@@ -29,23 +30,13 @@ class AviaServiceTest extends TestCase
         /** @var \App\Service\Request\Scenario $scenario */
         $scenario = app()->make('\App\Service\Request\Scenario');
 
-        /** @var \App\Service\Request\Step $step */
-        $step = app()->make('\App\Service\Request\Step');
-
-        $step->setMethod('amOnUrl');
-        $step->setArguments(['https://2ip.ru']);
+        $step = StepFactory::createStep('amOnUrl', ['https://2ip.ru']);
         $scenario->addStep($step);
 
-        /** @var \App\Service\Request\Step $step */
-        $step = app()->make('\App\Service\Request\Step');
-        $step->setMethod('see');
-        $step->setArguments(['Скорость интернет соединения']);
+        $step = StepFactory::createStep('see', ['Скорость интернет соединения']);
         $scenario->addStep($step);
 
-        /** @var \App\Service\Request\Step $step */
-        $step = app()->make('\App\Service\Request\Step');
-        $step->setMethod('grabTextFrom');
-        $step->setArguments(['#content-articles-block h2']);
+        $step = StepFactory::createStep('grabTextFrom', ['#content-articles-block h2']);
         $scenario->addStep($step);
 
         $result = $service->handle($scenario);
