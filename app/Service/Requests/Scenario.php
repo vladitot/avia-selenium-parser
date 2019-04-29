@@ -9,5 +9,15 @@
 namespace App\Service\Request;
 interface Scenario
 {
+    /**
+     * Get next scenario step
+     * @return Step
+     */
     public function getNextStep(): Step;
+
+    /**
+     * Add Scenario step
+     * @param Step $step
+     */
+    public function addStep(Step $step);
 }

@@ -20,4 +20,8 @@ interface Step
      * @return array
      */
     public function getArguments(): array;
+
+    public function setMethod(string $method);
+
+    public function setArguments(array $arguments);
 }

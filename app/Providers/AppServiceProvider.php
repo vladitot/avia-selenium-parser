@@ -13,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        app()->bind('\App\Service\Service', '\App\Service\Realization\Avia');
+        app()->bind('\App\Service\Request\Scenario', '\App\Service\Realization\Scenario');
+        app()->bind('\App\Service\Request\Step', '\App\Service\Realization\Step');
     }
 
     /**
@@ -23,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        app()->bind('App\Service\Service', 'App\Service\Realization\Avia');
+
     }
 }
