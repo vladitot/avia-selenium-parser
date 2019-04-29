@@ -5,15 +5,7 @@ namespace Tests\Feature;
 use App\Service\ActorCreator;
 use App\Service\Factory\StepFactory;
 use App\Service\Realization\Avia;
-use Codeception\Application;
-use Codeception\Codecept;
-use Codeception\Configuration;
-use Codeception\Scenario;
-use Codeception\SuiteManager;
-use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class AviaServiceTest extends TestCase
 {
