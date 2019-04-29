@@ -10,8 +10,8 @@ abstract class Service
 {
     /**
      * Some service, which can handle request and return some result.
-     * @param array $request
+     * @param Scenario $request
      * @return mixed
      */
-    abstract function handle(array $request): array;
+    abstract function handle(Scenario $request): array;
 }
