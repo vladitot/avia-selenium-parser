@@ -5,7 +5,7 @@
  * Date: 29.04.19
  * Time: 14:34
  */
-
+namespace App\Service\Request;
 interface Step
 {
     /**

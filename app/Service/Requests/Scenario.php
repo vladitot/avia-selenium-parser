@@ -6,6 +6,7 @@
  * Time: 14:29
  */
 
+namespace App\Service\Request;
 interface Scenario
 {
     public function getNextStep(): Step;
