@@ -1,1 +1,1 @@
-FROM avia-service_workspace
+FROM selenium-parser_workspace
